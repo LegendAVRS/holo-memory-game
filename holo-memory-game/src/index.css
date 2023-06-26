@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card {
+  @apply w-[170px] h-[170px]  border-pink-300 border-4 rounded hover:cursor-pointer bg-blue-300 flex justify-center items-center;
+  position: relative;
+}
+
+.card > img {
+  @apply object-cover;
+}
+
+.body {
+  @apply flex flex-col items-center bg-slate-200 w-screen h-screen;
+  background-image: url("../public/assets/pics/bg_pc.webp");
+}
+
+/* card back */
+.card .back {
+  width: 100px;
+  height: auto;
+  transition: all ease-in 0.2s;
+  transition-delay: 0.2s;
+}
+
+.selected .back {
+  transform: rotateY(90deg);
+  transition-delay: 0s;
+}
+
+/* card front */
+
+.card .front {
+  transform: rotateY(90deg);
+  transition: all ease-in 0.2s;
+  position: absolute;
+  width: 100%;
+}
+
+.selected .front {
+  transform: rotateY(0deg);
+  transition-delay: 0.2s;
+}
+
+.card.disabled {
+  @apply hover:cursor-default bg-green-200;
+}
+
+.card.disabled .front {
+  transform: rotateY(0deg);
+}
+
+.card.disabled .back {
+  display: none;
+}
+
+.btn {
+  @apply border rounded bg-red-400 px-5 py-2;
+}
